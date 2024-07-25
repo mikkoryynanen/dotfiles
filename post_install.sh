@@ -17,5 +17,7 @@ sudo pacman -S \
 	yay \
 	stow \
 	neovim \
-	xwallpaper
+	feh
 
+echo "Copying xinitrc"
+cp ./xinitrc ~/.xinitrc
