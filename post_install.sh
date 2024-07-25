@@ -17,4 +17,5 @@ sudo pacman -S \
 	yay \
 	stow \
 	neovim \
+	xwallpaper
 
