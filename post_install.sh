@@ -35,8 +35,8 @@ else
 	echo "Skipping, yay already installed"
 fi
 
+# Move files to ~/.config
 
-# TODO stow all of the config files
 
 
 # Copy xinitrc if it does not exist
