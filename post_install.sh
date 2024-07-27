@@ -18,8 +18,21 @@ sudo pacman -Sy --needed \
 	neovim \
 	feh \
 	kitty \
-	firefox
+	firefox \
+	ufw \
+	stow 
 
+echo ""
+
+# Setup firewall
+echo "Setting up ufw..."
+sudo ufw limit 22/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw enable
+echo ""
 
 # Install yay
 # Check if yay has already been installed 
@@ -35,9 +48,10 @@ else
 	echo "Skipping, yay already installed"
 fi
 
-# Move files to ~/.config
-
-
+# Stow configs
+stow i3/
+stow polybar/
+stow rofi/
 
 # Copy xinitrc if it does not exist
 if ! test -f ~/.xinitrc

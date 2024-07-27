@@ -13,14 +13,13 @@ set $mod Mod4
 
 # exec --no-startup-id picom
 # exec_always feh --bg-scale ~/dotfiles/dotfiles/backgrounds/nice-blue-background.png
-exec_always --no-startup-id ~/dotfiles/dotfiles/polybar/launch_polybar.sh
+
+#exec_always --no-startup-id ~/.config//polybar/launch_polybar.sh
+# exec_always killall -q polybar
+# exec_always sleep 100
+# exec_always polybar &
 
 bindsym $mod+space exec rofi -show combi
-
-# Gaps
-# gaps inner 5px
-# gaps outer 5px
-# smart_gaps inverse_outer
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
