@@ -14,6 +14,7 @@ sudo pacman -Sy --needed \
 	xorg-xinit \
 	xorg-xrandr \
 	i3 \
+    polybar \
 	stow \
 	neovim \
 	feh \
@@ -25,6 +26,14 @@ sudo pacman -Sy --needed \
 	ttf-jetbrains-mono
 
 echo ""
+
+# Setup polybar-themes
+echo "Setting up polybar-themes..."
+git clone --depth=1 https://github.com/adi1090x/polybar-themes.git
+cd polybar-themes
+chmod +x setup.sh
+./setup.sh
+cd ..
 
 # Setup firewall
 echo "Setting up ufw..."
@@ -57,11 +66,6 @@ yay -S picom
 echo "Stowing config files"
 stow i3/
 stow rofi/
-stow polybar/
-
-# Copy polybar config
-/echo "Copying polybar config"
-#sudo cp -f polybar/config.ini /etc/polybar/config.ini
 
 # Copy xinitrc if it does not exist
 if ! test -f ~/.xinitrc
@@ -71,3 +75,11 @@ then
 else
 	echo "xinitrc already copied"
 fi
+
+
+# Setup nvim config
+git clone --depth=1 https://github.com/mikkoryynanen/nvim-config
+cp -r nvim-config ~/.config
+mv ~/.config/nvim-config ~/.config/nvim
+
+
