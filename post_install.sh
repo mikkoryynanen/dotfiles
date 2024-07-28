@@ -20,7 +20,9 @@ sudo pacman -Sy --needed \
 	kitty \
 	firefox \
 	ufw \
-	stow 
+	stow \
+	ttf-font-awesome \
+	ttf-jetbrains-mono
 
 echo ""
 
@@ -48,10 +50,18 @@ else
 	echo "Skipping, yay already installed"
 fi
 
+# Now that we have yay, let's install Picom
+yay -S picom
+
 # Stow configs
+echo "Stowing config files"
 stow i3/
-stow polybar/
 stow rofi/
+stow polybar/
+
+# Copy polybar config
+/echo "Copying polybar config"
+#sudo cp -f polybar/config.ini /etc/polybar/config.ini
 
 # Copy xinitrc if it does not exist
 if ! test -f ~/.xinitrc
